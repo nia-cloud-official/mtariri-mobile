@@ -100,8 +100,10 @@
 
     <!-- Your login form container -->
     <center>
-        <div class="container" style="padding-top: 50%; display: none;"> <!-- Add display: none to hide the container initially -->
-            <div class="form-container">
+      <br><br>
+    <img src="./logo.png" alt="My Mtariri Logo" style="height: 200px;">  
+        <div class="container" style="padding-top: 10%; display: none;"> <!-- Add display: none to hide the container initially -->  
+        <div class="form-container">
                 <p class="title">Welcome back</p>
                 <form class="form" method="post" action="loginController.php">
                     <input type="email" class="input" placeholder="Email">
@@ -118,7 +120,7 @@
                 <br>
                 <div class="buttons-container">
                     
-                    <a href="./register.php">
+                    <a style="text-decoration: none;" href="./register.php">
                     <div class="apple-login-button">
                         <span>Create an Account</span>
                     </div>
