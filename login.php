@@ -95,7 +95,7 @@
 
     <!-- Add a loading animation container -->
     <div class="loading">
-        <img src="./logo.png" style="height: 500px;width: 500px;" class="loading-logo" alt="Logo">
+        <img src="./logo.png" style="height: 350px;width: 350px;" class="loading-logo" alt="Logo">
     </div>
 
     <!-- Your login form container -->
