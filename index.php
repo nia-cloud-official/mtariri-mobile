@@ -1,7 +1,5 @@
 <?php
 require_once 'config.php';
-
-// Check if user is logged in
 check_login();
 ?>
 
