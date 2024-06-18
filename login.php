@@ -106,8 +106,8 @@
         <div class="form-container">
                 <p class="title">Welcome back</p>
                 <form class="form" method="post" action="loginController.php">
-                    <input type="email" class="input" placeholder="Email">
-                    <input type="password" class="input" placeholder="Password">
+                    <input type="email" class="input" placeholder="Your Email">
+                    <input type="password" class="input" placeholder="Your Password">
                     <p class="page-link">
                         <span class="page-link-label">Forgot Password?</span>
                     </p>
