@@ -1,703 +1,453 @@
-<?php
-require_once 'config.php';
-check_login();
-?>
-
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <title>My Mtariri </title>
-      <link rel="icon" href="assets/images/fav.png" sizes="32x32" />
-      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="assets/css/splide.min.css">
-      <link href="assets/css/style.css" rel="stylesheet">
-   </head>
-   <body>
-      <nav id="primary-navbar" class="primary-nav navbar navbar-expand-lg navbar-light bg-white fixed-top font-nunito">
-         <div class="container px-4 px-sm-0">
-            <a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-               <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Work</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     Services
-                     </a>
-                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Branding</a></li>
-                        <li><a class="dropdown-item" href="#">UI/UX</a></li>
-                        <li><a class="dropdown-item" href="#">Hybrid Apps</a></li>
-                        <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
-                        <li><a class="dropdown-item" href="#">Growth Hacking</a></li>
-                     </ul>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Contact</a>
-                  </li>
-               </ul>
-            </div>
-            <button id="open-sidenav" class="open-sidenav bg-transparent border-0 ms-2">
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2c333a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
-               </svg>
-            </button>
-         </div>
-      </nav>
-      <!-- Off Canvas Menu Start-->
-      <div id="sidenav-wrap">
-         <span class="sidenav-backdrop"></span>
-         <div id="sidenav" class="sidenav font-nunito bg-dark px-4">
-            <a href="#" id="close-sidenav" class="close-sidenav text-decoration-none text-white">&times;</a>
-            <div class="sidenav-logo mt-5 pt-5">
-               <a class="" href="#"><img src="assets/images/logo-white.png"></a>
-            </div>
-            <div class="sidenav-menu mt-5">
-               <ul class="nav flex-column">
-                  <li class="nav-item">
-                     <a class="nav-link px-0 active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link px-0" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link px-0" href="#">Work</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link px-0 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Services</a>
-                     <ul class="dropdown-menu border-0">
-                        <li><a class="dropdown-item" href="#">Branding</a></li>
-                        <li><a class="dropdown-item" href="#">UI/UX</a></li>
-                        <li><a class="dropdown-item" href="#">Hybrid Apps</a></li>
-                        <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
-                        <li><a class="dropdown-item" href="#">Growth Hacking</a></li>
-                     </ul>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link px-0" href="#">Contact</a>
-                  </li>
-               </ul>
-            </div>
-            <div class="sidenav-social mt-5">
-               <ul class="list-unstyled">
-                  <li class="inline-block me-2"><a href="#" class="text-white"><img src="assets/images/twitter.svg"></a></li>
-                  <li class="inline-block me-2"><a href="#" class="text-white"><img src="assets/images/instagram.svg"></a></li>
-                  <li class="inline-block me-2"><a href="#" class="text-white"><img src="assets/images/linkedin.svg"></a></li>
-                  <li class="inline-block me-2"><a href="#" class="text-white"><img src="assets/images/youtube.svg"></a></li>
-                  <li class="inline-block me-2"><a href="#" class="text-white"><img src="assets/images/dribbble.svg"></a></li>
-                  <li class="inline-block"><a href="#" class="text-white"><img src="assets/images/github.svg"></a></li>
-               </ul>
-            </div>
-         </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Mtariri App">
+   <meta name="author" content="Milton Vafana">
+ <title>Document</title>
+</head>
+<body>
+  <screen>
+    <div class="nav row">
+      <div>
+        <p>35 minutes left in,</p>
+        <h5>Algebra II</h5>
       </div>
-      <!-- Off Canvas Menu End-->
-      <!-- Hero Section Start-->
-      <section class="hero bg-white">
-         <div class="container">
-            <div class="row align-items-center">
-               <div class="col-md-12 col-lg-6 order-2 order-lg-1  mt-4 mt-lg-0 pt-4 pt-lg-0 ">
-                  <div class="hero-content pe-md-0 pe-lg-5">
-                     <span class="pre-title text-dark small fw-bold inline-block position-relative text-uppercase">Hi, We're Pika</span>
-                     <h1 class="hero-title text-dark mt-3">We Design <br class="d-none d-lg-block">User Interface that works.</h1>
-                     <p class="hero-text mt-3 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat enim sem, id tempor ipsum tincidunt quis. Phasellus tellus ligula, mollis ut justo ut maximus.</p>
-                     <a href="#" class="btn btn-warning shadow-sm mt-4 fw-bold">Get Started!</a>
-                  </div>
-               </div>
-               <div class="col-md-12 col-lg-6 order-1 order-lg-2">
-                  <div class="hero-image wings position-relative mx-3 mx-md-4 ms-lg-5">
-                     <img class="rounded img-fluid w-100 position-relative" src="assets/images/hero.jpg">
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Hero Section End-->
-      <!-- Portfolio Section Start-->
-      <section class="portfolio bg-white">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col">
-                  <div class="section-head text-center mx-auto narrow">
-                     <span class="pre-title small position-relative fw-bold text-dark text-uppercase">Work</span>
-                     <h2 class="section-title text-dark mt-3">Browse our creative portfolio</h2>
-                     <p class="section-subtitle mt-3 mb-0">Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem. </p>
-                  </div>
-               </div>
-            </div>
-            <div class="row mt-5">
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-1.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">News Portal</h3>
-                           <span class="project-type text-uppercase text-white small">UI</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item End-->
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-2.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">Mockup Design</h3>
-                           <span class="project-type text-uppercase text-white small">Branding</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item End-->
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-3.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">News Portal</h3>
-                           <span class="project-type text-uppercase text-white small">App Design</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item End-->
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-4.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">News Portal</h3>
-                           <span class="project-type text-uppercase text-white small">App Design</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item End-->
-               <!-- Portfolio Item End-->
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-5.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">News Portal</h3>
-                           <span class="project-type text-uppercase text-white small">App Design</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item End-->
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-6.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">News Portal</h3>
-                           <span class="project-type text-uppercase text-white small">App Design</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item End-->
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-7.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">News Portal</h3>
-                           <span class="project-type text-uppercase text-white small">App Design</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item Start-->
-               <div class="col-12 col-sm-6 col-md-6 col-lg-3 px-0">
-                  <div class="portfolio-item position-relative overflow-hidden">
-                     <img class="portfolio-item-img img-fluid w-100" src="assets/images/portfolio-8.jpg">
-                     <div class="portfolio-item-content position-absolute rounded text-center">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                           <h3 class="project-title text-white">News Portal</h3>
-                           <span class="project-type text-uppercase text-white small">App Design</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Portfolio Item End-->
-            </div>
-         </div>
-      </section>
-      <!-- Portfolio Section End-->
-      <!-- Services Start-->
-      <section class="services section bg-white">
-         <div class="container">
-            <div class="row">
-               <div class="col">
-                  <div class="section-head text-center mx-auto narrow">
-                     <span class="pre-title small position-relative fw-bold text-dark text-uppercase">Services</span>
-                     <h2 class="section-title text-dark mt-3">What We Do</h2>
-                     <p class="section-subtitle mt-3 mb-0">Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem. </p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-12 col-md-6 col-lg-3">
-                  <div class="service-box text-center mt-5">
-                     <img class="service-box-icon" src="assets/images/branding.svg">
-                     <h3 class="service-box-title text-dark mt-4 text-uppercase">Design</h3>
-                     <p class="service-box-text mt-3 mb-0">Duis vulputate neque sed justo varius, vel lobortis sed lacus.</p>
-                  </div>
-               </div>
-               <div class="col-12 col-md-6 col-lg-3">
-                  <div class="service-box text-center mt-5">
-                     <img class="service-box-icon" src="assets/images/dev.svg">
-                     <h3 class="service-box-title text-dark mt-4 text-uppercase">Development</h3>
-                     <p class="service-box-text mt-3 mb-0">Duis vulputate neque sed justo varius, vel lobortis sed lacus.</p>
-                  </div>
-               </div>
-               <div class="col-12 col-md-6 col-lg-3">
-                  <div class="service-box text-center mt-5">
-                     <img class="service-box-icon" src="assets/images/marketing.svg">
-                     <h3 class="service-box-title text-dark mt-4 text-uppercase">Marketing</h3>
-                     <p class="service-box-text mt-3 mb-0">Duis vulputate neque sed justo varius, vel lobortis sed lacus.</p>
-                  </div>
-               </div>
-               <div class="col-12 col-md-6 col-lg-3">
-                  <div class="service-box text-center mt-5">
-                     <img class="service-box-icon" src="assets/images/scale.svg">
-                     <h3 class="service-box-title text-dark  mt-4 text-uppercase">Scale</h3>
-                     <p class="service-box-text mt-3 mb-0">Duis vulputate neque sed justo varius, vel lobortis sed lacus.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Services End-->
-      <!-- content Section Start-->
-      <section class="content-box section section-bg position-relative">
-         <img class="down-arrow-img position-absolute top-0 d-none d-lg-block" src="assets/images/section-arrow.svg">
-         <div class="container">
-            <div class="row align-items-center">
-               <div class="col-12 col-lg-6">
-                  <div class="content-box-text pe-0 pe-md-5">
-                     <span class="pre-title text-dark small position-relative fw-bold text-uppercase">Process</span>
-                     <h2 class="content-box-title text-dark section-title mt-3 mb-4">We build brands like nobody does</h2>
-                     <p>Proin vehicula in arcu ac tincidunt. Nunc scelerisque finibus consectetur. Sed molestie malesuada ante. Ut sollicitudin congue porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                     <p>Vivamus rhoncus sagittis fringilla. Aliquam tellus purus, bibendum quis lacus id, ullamcorper condimentum sem.</p>
-                     <a href="#" class="btn btn-warning mt-4 d-inline-block fw-bold shadow-sm">Discover More</a>
-                  </div>
-               </div>
-               <div class="col-12 col-lg-6">
-                  <div class="wings position-relative mt-5 mt-lg-0">
-                     <div class="video-box ratio ratio-16x9 shadow-lg ps-0 ps-md-5 position-relative">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/FpAM4fYj-4g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- content Section Start-->
-      <!-- Skills Start-->
-      <section class="skills section bg-white">
-         <div class="container">
-            <div class="row align-items-center">
-               <div class="col-12 col-lg-6">
-                  <div class="skills-img me-0 me-lg-5">
-                     <img src="assets/images/skills.jpg" class="img-fluid rounded shadow-sm">
-                     <div class="mt-3 clearfix">
-                        <div class="w-50 float-start pe-2">
-                           <img src="assets/images/skills-2.jpg" class="img-fluid rounded shadow-sm">
-                        </div>
-                        <div class="w-50 float-end ps-2">
-                           <img src="assets/images/skills-3.jpg" class="img-fluid rounded shadow-sm">
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-12 col-lg-6">
-                  <div class="section-head mt-5 mt-lg-0">
-                     <span class="pre-title small position-relative fw-bold text-dark text-uppercase">Skills</span>
-                     <h2 class="section-title text-dark mt-3">Our Super powers</h2>
-                     <p class="section-subtitle mt-3">Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem. </p>
-                     <ul class="check-list list-unstyled mb-0">
-                        <li>Praesent blandit ut neque at tempus.</li>
-                        <li>Proin consectetur euismod blandit.</li>
-                        <li>Aliquam vel diam vel nunc sollicitudin.</li>
-                        <li>Cras in dui vel diam tempor commodo.</li>
-                     </ul>
-                  </div>
-                  <div class="skills-content mt-2 me-0 me-md-5">
-                     <div class="row">
-                        <div class="col-12">
-                           <div class="mt-4">
-                              <div class="clearfix">
-                                 <span class="d-block w-50 float-start fw-bold small">Design</span>
-                                 <span class="d-block w-50 float-end fw-bold small text-end">95%</span>
-                              </div>
-                              <div class="progress mt-2">
-                                 <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                           </div>
-                           <div class="mt-4">
-                              <div class="clearfix">
-                                 <span class="d-block w-50 float-start fw-bold small">Development</span>
-                                 <span class="d-block w-50 float-end fw-bold small text-end">90%</span>
-                              </div>
-                              <div class="progress mt-2">
-                                 <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                           </div>
-                           <div class="mt-4">
-                              <div class="clearfix">
-                                 <span class="d-block w-50 float-start fw-bold small">Marketing</span>
-                                 <span class="d-block w-50 float-end fw-bold small text-end">93%</span>
-                              </div>
-                              <div class="progress mt-2">
-                                 <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 93%" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Skills End-->
-      <!-- Testimonials Start-->
-      <section class="testimonials section bg-dark">
-         <div class="container">
-            <div class="row">
-               <div class="col">
-                  <div class="section-head text-center mx-auto narrow">
-                     <span class="pre-title small position-relative fw-bold text-white text-uppercase">Testimonials</span>
-                     <h2 class="section-title text-white mt-3">See what our clients are saying</h2>
-                     <p class="section-subtitle mt-3 text-muted mb-0">Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem. </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="container mt-3 mt-md-5">
-            <div class="row">
-               <div class="col px-0">
-                  <!-- Slider Start-->
-                  <div class="splide">
-                     <div class="splide__track">
-                        <div class="splide__list">
-                           <div class="splide__slide">
-                              <div class="testimonial text-center p-3 p-md-5 rounded shadow-sm">
-                                 <img class="testimonial-img rounded-circle" src="assets/images/testimonial-1.jpg">
-                                 <h4 class="testimonial-name text-white fs-5 fw-bold mt-3">Barry Baker</h4>
-                                 <p class="testimonial-text text-muted fs-6 fst-italic mt-2 mb-0">&ldquo; Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem.&rdquo;</p>
-                              </div>
-                           </div>
-                           <div class="splide__slide">
-                              <div class="testimonial text-center p-3 p-md-5 rounded shadow-sm">
-                                 <img class="testimonial-img rounded-circle" src="assets/images/testimonial-2.jpg">
-                                 <h4 class="testimonial-name text-white fs-5 fw-bold mt-3">Aima Abney</h4>
-                                 <p class="testimonial-text text-muted fst-italic mt-2 mb-0">&ldquo; Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem.&rdquo;</p>
-                              </div>
-                           </div>
-                           <div class="splide__slide">
-                              <div class="testimonial text-center p-3 p-md-5 rounded shadow-sm">
-                                 <img class="testimonial-img rounded-circle" src="assets/images/testimonial-3.jpg">
-                                 <h4 class="testimonial-name text-white fs-5 fw-bold mt-3">Magh Mackin</h4>
-                                 <p class="testimonial-text text-muted fst-italic mt-2 mb-0">&ldquo; Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem.&rdquo;</p>
-                              </div>
-                           </div>
-                           <div class="splide__slide">
-                              <div class="testimonial text-center p-3 p-md-5 rounded shadow-sm">
-                                 <img class="testimonial-img rounded-circle" src="assets/images/testimonial-2.jpg">
-                                 <h4 class="testimonial-name text-white fs-5 fw-bold mt-3">Aika Abney</h4>
-                                 <p class="testimonial-text text-muted fst-italic mt-2 mb-0">&ldquo; Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem.&rdquo;</p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!--Slider End-->
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Testimonials End-->
-      <!-- Team Start-->
-      <section class="team section section-bg">
-         <div class="container">
-            <div class="row">
-               <div class="col">
-                  <div class="section-head text-center mx-auto narrow">
-                     <span class="pre-title small position-relative fw-bold text-dark text-uppercase">Team</span>
-                     <h2 class="section-title text-dark mt-3">Meet Our Core Team Members</h2>
-                     <p class="section-subtitle mt-3 mb-0">Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem. </p>
-                  </div>
-               </div>
-            </div>
-            <div class="row gx-3">
-               <!-- Team Member-->
-               <div class="col-6 col-md-6 col-lg-3">
-                  <div class="team-member mt-3 mt-md-5">
-                     <div class="card border-0 shadow-sm">
-                        <img src="assets/images/team-1.jpg" class="card-img-top rounded">
-                        <div class="card-body py-4 text-center">
-                           <h5 class="card-title fs-6 fw-bold text-uppercase">Jimmy Jones</h5>
-                           <h6 class="card-subtitle mb-0 text-muted small">CEO</h6>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Team Member-->
-               <!-- Team Member-->
-               <div class="col-6 col-md-6 col-lg-3">
-                  <div class="team-member mt-3 mt-md-5">
-                     <div class="card border-0 shadow-sm">
-                        <img src="assets/images/team-2.jpg" class="card-img-top rounded">
-                        <div class="card-body py-4 text-center">
-                           <h5 class="card-title fs-6 fw-bold text-uppercase">Piwy Powell</h5>
-                           <h6 class="card-subtitle mb-0 text-muted small">CTO</h6>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Team Member-->
-               <!-- Team Member-->
-               <div class="col-6 col-md-6 col-lg-3">
-                  <div class="team-member mt-3 mt-md-5">
-                     <div class="card border-0 shadow-sm">
-                        <img src="assets/images/team-3.jpg" class="card-img-top rounded">
-                        <div class="card-body py-4 text-center">
-                           <h5 class="card-title fs-6 fw-bold text-uppercase">Siko Simpson</h5>
-                           <h6 class="card-subtitle mb-0 text-muted small">COO</h6>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Team Member-->
-               <!-- Team Member-->
-               <div class="col-6 col-md-6 col-lg-3">
-                  <div class="team-member mt-3 mt-md-5">
-                     <div class="card border-0 shadow-sm">
-                        <img src="assets/images/team-4.jpg" class="card-img-top rounded">
-                        <div class="card-body py-4 text-center">
-                           <h5 class="card-title fs-6 fw-bold text-uppercase">Gina Griffin</h5>
-                           <h6 class="card-subtitle mb-0 text-muted small">Creative Director</h6>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Team Member-->
-            </div>
-         </div>
-      </section>
-      <!-- Team End-->
-      <!--STats Box-->
-      <section class="stats section">
-         <div class="container">
-            <div class="row align-items-center">
-               <div class="col-12 col-lg-6">
-                  <div class="stats-box-text">
-                     <span class="pre-title small position-relative fw-bold text-dark text-uppercase">Stats</span>
-                     <h2 class="stats-box-title section-title text-dark mt-3 mb-4">Amazing Numbers Speaks Our Truth</h2>
-                     <p>Proin vehicula in arcu ac tincidunt. Nunc scelerisque finibus consectetur. Sed molestie malesuada ante. Ut sollicitudin congue porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                     <p>Vivamus rhoncus sagittis fringilla. Nam at vehicula augue. Ut fringilla laoreet molestie. Duis sodales tortor et diam gravida, sit amet interdum tortor dapibus. Nam facilisis sollicitudin leo volutpat aliquam.</p>
-                  </div>
-               </div>
-               <div class="col-12 col-lg-6">
-                  <div class="stats-wrap text-center ps-0 ps-lg-5">
-                     <div class="row gx-3">
-                        <div class="col-6 col-lg-6">
-                           <div class="stats-box bg-white mt-3 px-4 py-4 py-md-5">
-                              <img class="stats-icon" src="assets/images/years.svg">
-                              <h4 class="stats-title mt-3">10 years</h4>
-                              <p class="stats-text text-muted mb-0 small">in Business</p>
-                           </div>
-                        </div>
-                        <div class="col-6 col-lg-6">
-                           <div class="stats-box bg-white mt-3 px-4 py-4 py-md-5">
-                              <img class="stats-icon" src="assets/images/clients.svg">
-                              <h4 class="stats-title mt-3">200+</h4>
-                              <p class="stats-text text-muted mb-0 small">Clients</p>
-                           </div>
-                        </div>
-                        <div class="col-6 col-lg-6">
-                           <div class="stats-box bg-white mt-3 px-4 py-4 py-md-5">
-                              <img class="stats-icon" src="assets/images/projects.svg">
-                              <h4 class="stats-title mt-3">300+</h4>
-                              <p class="stats-text text-muted mb-0 small">Projects</p>
-                           </div>
-                        </div>
-                        <div class="col-6 col-lg-6">
-                           <div class="stats-box bg-white mt-3 px-4 py-4 py-md-5">
-                              <img class="stats-icon" src="assets/images/revenue.svg">
-                              <h4 class="stats-title mt-3">2M</h4>
-                              <p class="stats-text mb-0 small">Revenue</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!--STats Box-->
-      <!-- Blog Start-->
-      <section class="blog-posts section section-bg">
-         <div class="container">
-            <div class="row">
-               <div class="col">
-                  <div class="section-head text-center mx-auto narrow">
-                     <span class="pre-title small position-relative fw-bold text-dark text-uppercase">Blog</span>
-                     <h2 class="section-title text-dark mt-3">Read latest stories from our blog</h2>
-                     <p class="section-subtitle mt-3 mb-0">Proin consectetur euismod blandit. Praesent blandit ut neque at tempus. Cras in dui vel diam tempor commodo. Aliquam vel diam vel nunc sollicitudin malesuada in a sem. </p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <!-- Blog Post Start-->
-               <div class="col-12 col-md-6 col-lg-4">
-                  <div class="blog-post bg-white rounded-3 shadow-sm overflow-hidden mt-4 mt-md-5">
-                     <img src="assets/images/blog-1.jpg" class="blog-thumb img-fluid w-100">
-                     <div class="blog-post-body p-4">
-                        <div class="blog-post-meta clearfix">
-                           <a href="#" class="blog-post-tag text-warning fw-bold text-decoration-none me-4 small">Business</a>
-                        </div>
-                        <h3 class="blog-post-title mt-2 mb-0"><a href="#" class="text-dark">How to find a brandable domain name for your business?</a></h3>
-                        <span class="post-date text-muted d-inline-block mt-2 small">24 mins. ago</span>
-                     </div>
-                  </div>
-               </div>
-               <!-- Blog Post End-->
-               <!-- Blog Post Start-->
-               <div class="col-12 col-md-6 col-lg-4">
-                  <div class="blog-post bg-white rounded-3 shadow-sm overflow-hidden mt-4 mt-md-5">
-                     <img src="assets/images/blog-2.jpg" class="blog-thumb img-fluid w-100">
-                     <div class="blog-post-body p-4">
-                        <div class="blog-post-meta clearfix">
-                           <a href="#" class="blog-post-tag text-warning fw-bold text-decoration-none me-4 small">Marketing</a>
-                        </div>
-                        <h3 class="blog-post-title mt-2 mb-0"><a href="#" class="text-dark">10 best PPC campaign planning tools for paid marketing experts</a></h3>
-                        <span class="post-date text-muted d-inline-block mt-2 small">5 hrs. ago</span>
-                     </div>
-                  </div>
-               </div>
-               <!-- Blog Post End-->
-               <!-- Blog Post Start-->
-               <div class="col-12 col-md-6 col-lg-4">
-                  <div class="blog-post bg-white rounded-3 shadow-sm overflow-hidden mt-4 mt-md-5">
-                     <img src="assets/images/blog-3.jpg" class="blog-thumb img-fluid w-100">
-                     <div class="blog-post-body p-4">
-                        <div class="blog-post-meta clearfix">
-                           <a href="#" class="blog-post-tag text-warning fw-bold text-decoration-none me-4 small">Productivity</a>
-                        </div>
-                        <h3 class="blog-post-title mt-2 mb-0"><a href="#" class="text-dark">Top 10 tips to increase focus and  productivity at work</a></h3>
-                        <span class="post-date text-muted d-inline-block mt-2 small">1 day ago</span>
-                     </div>
-                  </div>
-               </div>
-               <!-- Blog Post End-->
-            </div>
-         </div>
-      </section>
-      <section class="cta section bg-dark position-relative pb-5">
-         <svg class="cta-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-         </svg>
-         <div class="container">
-            <div class="row">
-               <div class="col-12 col-md-7">
-                  <div class="cta-content">
-                     <h3 class="cta-title text-white">Get in Touch with Us</h3>
-                     <p class="cta-text text-muted mt-3">Vnterdum et malesuada fames ac ante ipsum primis in faucibus. Duis blandit massa a metus sodales, non aliquam lacus pretium.</p>
-                     <a href="#" class="btn btn-warning mt-4 fw-bold">Say hi!</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!--Footer Start-->
-      <footer class="footer bg-dark text-muted pt-0 pt-lg-5">
-         <div class="container">
-            <div class="row">
-               <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                  <div class="footer-col mt-5 pe-4">
-                     <img src="assets/images/logo-white.png" class="footer-logo mb-4">
-                     <p class="mb-0">Pellentesque sed elementum erat. Proin ut purus viverra, porttitor sem id, finibus ante. Vestibulum ullamcorper convallis magna. Integer bibendum ante felis, non laoreet enim molestie ac. </p>
-                  </div>
-               </div>
-               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                  <div class="footer-col mt-5">
-                     <h3 class="footer-title text-white mb-4">Services</h3>
-                     <ul class="list-unstyled mb-0">
-                        <li class="mb-2"><a href="#">Design</a></li>
-                        <li class="mb-2"><a href="#">Development</a></li>
-                        <li class="mb-2"><a href="#">Marketing</a></li>
-                        <li class="mb-0"><a href="#">Growth Hacking</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                  <div class="footer-col mt-5">
-                     <h3 class="footer-title text-white mb-4">Company</h3>
-                     <ul class="list-unstyled mb-0">
-                        <li class="mb-2"><a href="#">About</a></li>
-                        <li class="mb-2"><a href="#">Team</a></li>
-                        <li class="mb-2"><a href="#">Career</a></li>
-                        <li class="mb-0"><a href="#">Contact</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                  <div class="footer-col footer-contact mt-5">
-                     <h3 class="footer-title text-white mb-4">Contact us</h3>
-                     <div class="mb-3"><img class="me-2" src="assets/images/map-pin.svg"><span>2132  Berry Street, Pueblo,  Colorado</span></div>
-                     <div class="mb-3"><img class="me-2" src="assets/images/mail.svg"><span>719-240-7593</span></div>
-                     <div><img class="me-2" src="assets/images/phone.svg"><span> contact@example.com</span></div>
-                  </div>
-               </div>
-            </div>
-            <div class="row footer-credits text-center mt-5 py-3">
-               <div class="col-12 col-md-6">
-                  <div class="footer-copy float-md-none float-lg-start">
-                     <p class="mb-0 small">&copy 2021 <a href="#" class="text-decoration-none">Pika</a>. Designed by <a href="https://romanpixel.com" rel="nofollow" class="text-decoration-none">RomanPixel</a></p>
-                  </div>
-               </div>
-               <div class="col-12 col-md-6">
-                  <div class="footer-social clearfix">
-                     <ul class="list-unstyled mb-0 float-md-none float-lg-end">
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/youtube.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/twitter.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/instagram.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/github.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/dribbble.svg"></a></li>
-                        <li class="d-inline-block"><a href="#"><img src="assets/images/facebook.svg"></a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!--Footer End-->
-      <script src="assets/js/bootstrap.bundle.min.js"></script>
-      <script src="assets/js/splide.min.js"></script>
-      <script src="assets/js/main.js"></script>
-   </body>
-</html>
+      <button class="secondary circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+        </svg></button>
+    </div>
+    <div class="column">
+      <glob id="glob-2"></glob>
+      <div class="row">
+        <div class="widget secondary split home-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+          </svg>
+          </svg>
+          <h5>Work</h5>
+          <p class="muted">9 items due</p>
+        </div>
+        <div class="widget secondary split home-item">
+          <notification>
+            <p>2</p>
+          </notification>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z" />
+          </svg>
+          <h5>Chats</h5>
+          <p class="muted">2 new pings</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="widget secondary split home-item">
+          <notification>
+            <p>1</p>
+          </notification>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
+          </svg>
+          <h5>Grades</h5>
+          <p class="muted">1 new grade</p>
+        </div>
+        <div class="widget primary split home-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+          </svg>
+          <h5>More</h5>
+          <p class="muted">More stuff</p>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div>
+        <h5>Feed</h5>
+        <p class="muted">Nothing to see here</p>
+      </div>
+      <div class="widget secondary">
+        <h5>New Invite</h5>
+        <small class="muted">You've been invited to <span> super cool ppl chat</span> by <span> Jimmothy IIV</span></small>
+      </div>
+      <div class="widget secondary">
+        <h5>David, Johnson</h5>
+        <small>IB Life Studies</small>
+        <br>
+        <p class="muted">We're moving classes to A1436 bc the wall has gone missing. Idek where it went tbh</p>
+        <br>
+        <small>Jan 2, 2024 at 5:23pm</small>
+      </div>
+      <div class="widget secondary">
+        <h5>May, James</h5>
+        <small>AP Drag Racing</small>
+        <br>
+        <p class="muted">Uhhh sooo, I may have wrecked the car we were just given <span>💀</span><span>💀</span><span>💀</span>
+        </p>
+        <br>
+        <small>Jan 1, 2024 at 2:56am</small>
+      </div>
+      <small class="center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+        </svg></small>
+    </div>
+
+    <div class="widget secondary">
+      <h5>Patch Notes</h5>
+      <br>
+      <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <br>
+      <div class="row">
+        <small>Learn more</small>
+        <small>v1.2.1</small>
+      </div>
+    </div>
+
+    <!--<div class="widget-wrapper">
+      <div>
+        <glob id="glob-2"></glob>
+        <h4>Assignments</h4>
+        <p class="muted">You have 4 assignments due</p>
+      </div>
+      <div class="column">
+        <div class="widget secondary book-marked" id="1">
+            <path
+              d="M364.2 83.8c-24.4-24.4-64-24.4-88.4 0l-184 184c-42.1 42.1-42.1 110.3 0 152.4s110.3 42.1 152.4 0l152-152c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-152 152c-64 64-167.6 64-231.6 0s-64-167.6 0-231.6l184-184c46.3-46.3 121.3-46.3 167.6 0s46.3 121.3 0 167.6l-176 176c-28.6 28.6-75 28.6-103.6 0s-28.6-75 0-103.6l144-144c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-144 144c-6.7 6.7-6.7 17.7 0 24.4s17.7 6.7 24.4 0l176-176c24.4-24.4 24.4-64 0-88.4z" />
+          </svg>
+          <h5>Unit 5 Essay Analysis</h5>
+          <small>Due Monday, Apirl 7th at 9:00am</small>
+          <small class="muted">Go to assignment -></small>
+        </div>
+        <div class="widget secondary" id="1">
+          <notification>
+            <p>1</p>
+          </notification>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+              d="M364.2 83.8c-24.4-24.4-64-24.4-88.4 0l-184 184c-42.1 42.1-42.1 110.3 0 152.4s110.3 42.1 152.4 0l152-152c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-152 152c-64 64-167.6 64-231.6 0s-64-167.6 0-231.6l184-184c46.3-46.3 121.3-46.3 167.6 0s46.3 121.3 0 167.6l-176 176c-28.6 28.6-75 28.6-103.6 0s-28.6-75 0-103.6l144-144c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-144 144c-6.7 6.7-6.7 17.7 0 24.4s17.7 6.7 24.4 0l176-176c24.4-24.4 24.4-64 0-88.4z" />
+          </svg>
+          <h5>Biology Quiz</h5>
+          <small>Due Monday, Apirl 7th at 9:00am</small>
+          <small class="muted">Go to assignment -></small>
+        </div>
+        <div class="widget secondary" id="1">
+          <h5>More Quadratics Homework</h5>
+          <small>Due Monday, Apirl 7th at 9:00am</small>
+          <small class="muted">Go to assignment -></small>
+        </div>
+        <div class="widget secondary" id="1">
+          <h5>Unit 9 Test!</h5>
+          <small>Due Monday, Apirl 7th at 9:00am</small>
+          <small class="muted">Go to assignment -></small>
+        </div>
+        <small class="muted">Load more</small>
+      </div>
+    </div>-->
+
+    <!--  <div class="nav row">
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
+        </svg>
+      </a>
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
+        </svg>
+      </a>
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+        </svg>
+      </a>
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
+        </svg>
+      </a>
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
+        </svg>
+      </a>
+    </div>-->
+  </screen>
+  <style>
+   @import url("https://fonts.googleapis.com/css?family=Figtree:800|DM+Sans:400");
+
+:root {
+  --text: hsla(247, 57%, 91%, 1);
+  --text_light: hsla(247, 57%, 91%, 0.9);
+  --text_dark: hsla(247, 57%, 91%, 0.5);
+  --background: rgb(20, 21, 20);
+  --background_dark: rgb(16, 16, 15);
+  --primary: hsla(241, 25%, 50%, 1);
+  --secondary: hsla(247, 8%, 25%, 0.5);
+  --accent: rgb(100, 35, 251);
+  --outline: hsla(247, 5%, 36%, 1);
+  --alert: hsla(360, 60%, 55%, 1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Figtree";
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+}
+
+html {
+  font-size: 100%;
+}
+
+/* 16px */
+
+h1 {
+  font-size: 8rem;
+}
+
+h2 {
+  font-size: 3.158rem;
+}
+
+h3 {
+  font-size: 2.369rem;
+}
+
+h4 {
+  font-size: 1.777rem;
+}
+
+h5 {
+  font-size: 1.333rem;
+  color: var(--text_light);
+  line-height: 1.5rem;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+span {
+  color: var(--text);
+}
+
+small {
+  font-size: 0.75rem;
+  color: var(--text);
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 1rem 1rem 2rem 1rem;
+  font-family: "DM Sans";
+  font-weight: 400;
+  color: var(--text);
+  background: linear-gradient(11deg, var(--background_dark), var(--background));
+}
+
+screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+svg {
+  fill: var(--text_dark);
+  height: 1lh;
+  width: 1lh;
+  cursor: pointer;
+}
+
+notification {
+  position: absolute;
+  top: -5%;
+  right: -5%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+notification p {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+button {
+  color: var(--text);
+  padding: 0.9rem 1rem 0.9rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.primary {
+  background: linear-gradient(114deg, var(--primary), var(--accent));
+}
+
+.secondary {
+  background: var(--secondary);
+}
+
+.circle {
+  position: relative;
+  padding: 0;
+  border-radius: 100%;
+  height: 3rem;
+  width: 3rem;
+}
+
+.circle svg {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.muted {
+  color: var(--text_dark);
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.alert {
+  color: var(--alert);
+}
+
+.active {
+  color: var(--primary);
+}
+
+.split {
+  width: 50%;
+}
+
+.center {
+  align-items: center;
+  align-self: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.home-item {
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  /*gap: 1rem;*/
+}
+
+.widget-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+div.column:nth-child(2) {
+  margin-top: 0rem;
+}
+
+glob {
+  opacity: 30%;
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
+  filter: blur(100px);
+  background: var(--primary);
+  pointer-events: none;
+}
+
+#glob-1 {
+  background: var(--text_light);
+  right: 0;
+  top: 0;
+}
+
+#glob-2 {
+  right: 50;
+}
+
+.nav {
+  display: flex;
+  padding: 1rem 0rem 1rem 0rem;
+  bottom: 0;
+  position: sticky;
+  justify-content: space-evenly;
+  align-items: center;
+  background: var(--primary);
+  margin: 0 -1rem 0 -1rem;
+  z-index: 10;
+  top: 0;
+  backdrop-filter: blur(10px);
+}
+
+.nav:nth-child(1) {
+  top: 0;
+  justify-content: space-between;
+  padding: 1rem 1rem 0rem 1rem;
+  background: none;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (min-width: 800px) {
+  screen {
+    max-width: 21rem;
+  }
+}
+
+  </style>
+</body>

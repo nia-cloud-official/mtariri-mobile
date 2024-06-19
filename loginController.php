@@ -1,12 +1,11 @@
 <?php
-// loginController.php
 session_start();
 
 // Replace these with your own database connection details
 $servername = "localhost";
 $username = "milto";
 $password = "lola";
-$dbname = ""; // Replace with your database name
+$dbname = "mtariri"; // Replace with your database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,40 +22,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $submitted_password = $_POST['password'];
 
     // Prepare and bind
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $submitted_email);
-
-    // Execute the statement
     $stmt->execute();
-    $stmt->store_result();
+    $result = $stmt->get_result();
 
-    // Check if a user with the submitted email exists
-    if ($stmt->num_rows > 0) {
-        // Bind result variables
-        $stmt->bind_result($user_id, $hashed_password);
-        $stmt->fetch();
-
-        // Verify the submitted password with the hashed password from the database
-        if (password_verify($submitted_password, $hashed_password)) {
-            // Password is correct, set the session variable
-            $_SESSION['user_id'] = $user_id;
-
-            // Redirect to the protected page
-            header("Location: protected_page.php");
+    if ($result->num_rows > 0) {
+        $user_data = $result->fetch_assoc();
+        if ($submitted_password = $user_data['password']) {
+            $_SESSION['user_id'] = $user_data['id'];
+            $_SESSION['email'] = $submitted_email;
+            header("Location: ./panel/index.php");
             exit();
         } else {
-            // Incorrect password
-            echo "Incorrect password.";
+            echo "Invalid password.";
         }
     } else {
-        // Email doesn't exist
         echo "No user found with that email.";
     }
-
-    // Close statement
-    $stmt->close();
 }
 
 // Close connection
 $conn->close();
-?>

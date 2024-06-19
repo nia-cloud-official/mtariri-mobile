@@ -1,59 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Login | My Mtariri</title>
-    <link rel="stylesheet" href="./login_includes/style.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Register Page">
+   <meta name="author" content="Your Name">
+   <title>Register Page</title>
+   
+   <!-- Importing custom fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Figtree:800|DM+Sans:400" rel="stylesheet">
+   
+   <!-- Custom CSS -->
+   <style>
+      :root {
+         --text: hsla(247, 57%, 91%, 1);
+         --text_light: hsla(247, 57%, 91%, 0.9);
+         --text_dark: hsla(247, 57%, 91%, 0.5);
+         --background: rgb(20, 21, 20);
+         --background_dark: rgb(16, 16, 15);
+         --primary: hsla(241, 25%, 50%, 1);
+         --secondary: hsla(247, 8%, 25%, 0.5);
+         --accent: rgb(100, 35, 251);
+         --outline: hsla(247, 5%, 36%, 1);
+         --alert: hsla(360, 60%, 55%, 1);
+      }
+
+      * {
+         box-sizing: border-box;
+         padding: 0;
+         margin: 0;
+      }
+
+      h1, h2, h3, h4, h5 {
+         font-family: "Figtree";
+         font-weight: 800;
+         line-height: 1;
+         color: var(--text);
+      }
+
+      html {
+         font-size: 100%;
+      }
+
+      body {
+         height: 100%;
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         font-family: "DM Sans";
+         background: linear-gradient(11deg, var(--background_dark), var(--background));
+         color: var(--text);
+         margin: 0;
+         padding: 2rem;
+      }
+
+      .register-form {
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 1rem;
+         padding: 2rem;
+         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+         width: 100%;
+         max-width: 400px;
+         text-align: center;
+      }
+
+      .register-form h2 {
+         font-size: 2rem;
+         margin-bottom: 1rem;
+      }
+
+      .register-form input {
+         width: calc(100% - 2rem);
+         padding: 1rem;
+         margin: 0.5rem;
+         font-size: 1rem;
+         border: none;
+         border-radius: 0.5rem;
+         background: rgba(255, 255, 255, 0.8);
+         outline: none;
+         color: var(--text);
+      }
+
+      .register-form button {
+         width: calc(100% - 2rem);
+         padding: 1rem;
+         margin: 1rem 0;
+         font-size: 1rem;
+         border: none;
+         border-radius: 0.5rem;
+         background: var(--primary);
+         color: var(--background);
+         cursor: pointer;
+         outline: none;
+         transition: background 0.3s ease;
+      }
+
+      .register-form button:hover {
+         background: var(--accent);
+      }
+
+      .register-form p {
+         font-size: 0.9rem;
+         color: var(--text_dark);
+         margin-top: 0.5rem;
+      }
+
+      .register-form p a {
+         color: var(--primary);
+         text-decoration: none;
+      }
+
+      .register-form p a:hover {
+         text-decoration: underline;
+      }
+   </style>
 </head>
-<body style="background-image: url('./assets/images/white-cubes-3d-background_23-2150505295.avif');background-position:center;background-size:cover;">
-
-<center>
-    <div class="container" style="padding-top: 50%;">
-
-    </div>
-        <div class="form-container">
-      <p class="title">Create Account</p>
-      <form class="form" method="post" action="loginController.php">
-      <input type="email" class="input" placeholder="Full Name">
-      <input type="email" class="input" placeholder="Email">
-        <input type="password" class="input" placeholder="Password">
-        <p class="page-link">
-          <span class="page-link-label">Generate Password</span>
-        </p>
-        <button class="form-btn">Log in</button>
+<body>
+   <div class="register-form">
+      <h2>Register</h2>
+      <form>
+         <input type="text" placeholder="Username" required>
+         <input type="email" placeholder="Email" required>
+         <input type="password" placeholder="Password" required>
+         <input type="password" placeholder="Confirm Password" required>
+         <button type="submit">Register</button>
       </form>
-      <p class="sign-up-label">
-        Already have an account?<span class="sign-up-link">Login Now!</span>
-      </p>
-      <div class="buttons-container">
-        <div class="google-login-button">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" x="0px" y="0px" class="google-icon" viewBox="0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
-	c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24
-	c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
-            <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657
-	C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
-            <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36
-	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
-            <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
-	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
-          </svg>
-          <span>Sign Up with Google</span>
-        </div>
-      </div>
-</div>
-    </center>
-
+      <p>Already have an account? <a href="#">Login</a></p>
+   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
