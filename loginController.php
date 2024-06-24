@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("s", $submitted_email);
     $stmt->execute();
     $result = $stmt->get_result();
-
     if ($result->num_rows > 0) {
         $user_data = $result->fetch_assoc();
         if ($submitted_password = $user_data['password']) {

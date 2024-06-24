@@ -1,6 +1,7 @@
 <?php
 // Start session
 session_start();
+$_SESSION['user_name'] = "";
 
 // Define database connection parameters
 define('DB_SERVER', 'localhost');
@@ -23,9 +24,6 @@ define('BASE_URL', 'http://.com');
 // Error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
-// Timezone settings
-date_default_timezone_set('CAT/GMT+2');
 
 // Email configuration (if needed)
 define('EMAIL_FROM', 'noreply@yourdomain.com');
@@ -62,6 +60,12 @@ function check_login() {
     }
 }
 
+define('site_url',  "http://localhost/mtariri-mobile/");
+
+function redirect($url) {
+    header("Location". $url);
+    return 0;
+}
 // Function to send an email (using PHPMailer)
 function send_email($to, $subject, $body) {
     require 'PHPMailer/PHPMailerAutoload.php';
@@ -88,4 +92,5 @@ function send_email($to, $subject, $body) {
         return 'Message has been sent';
     }
 }
+
 ?>

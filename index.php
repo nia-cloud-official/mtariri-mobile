@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<?php 
+require("config.php");
+   $userProfName = $_SESSION['email'];
+   if (empty($userProfName)){
+      header("Location:" . "login.php");
+   } else { 
+    echo "Welcome back " . " ".  $_SESSION['user_name'];
+   }
+?>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="description" content="Mtariri App">
    <meta name="author" content="Milton Vafana">
- <title>Document</title>
+ <title>My Mtariri</title>
 </head>
 <body>
   <screen>

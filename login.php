@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<?php 
+
+session_start();
+?>
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +30,7 @@
 
       * {
          box-sizing: border-box;
-         padding: 0;
+         padding: 5px;
          margin: 0;
       }
 
@@ -115,17 +118,62 @@
       .login-form p a:hover {
          text-decoration: underline;
       }
+      .container { 
+         height: 15vh;
+      }
    </style>
 </head>
 <body>
-   <div class="login-form">
-      <h2>Login</h2>
-      <form>
-         <input type="text" placeholder="Username" required>
-         <input type="password" placeholder="Password" required>
-         <button type="submit">Login</button>
+   <?php 
+   if(!isset($_POST["email"])){ 
+      # [ Do nothing at all ]
+   }else { 
+      # [ Collect the email address ]
+      $email = $_POST["email"];
+      $query = "SELECT * FROM `users` WHERE `email` = '$email'";
+      $conn  = mysqli_connect("localhost","milto","lola","mtariri");
+      $result = mysqli_query($conn,$query);
+      $results = mysqli_fetch_all($result);
+      if(!$results) { 
+         echo "<div class='notify'><p>Invalid Email or Password!. Please try again</p></div>";
+      }else {
+         # Note to myself [ $user[5] is for password since the password is considered the 5th character in the array ];
+         foreach($results as $user){ 
+             $email = $_POST['email'];
+             $password = $_POST['password'];
+             if($password === $user[5]) { 
+               echo "<div class='notify'>Authenticating...</div>";
+               $_SESSION['email'] = $email;
+               $data = $_SESSION['email'];
+               define('usermail', $data, true);
+               header("Location:" . "./panel/index.php");
+             }else { 
+               echo "<div class='notify'>Invalid Password, Please try again!</div>";
+             }
+         }
+      }
+   }
+   ?>
+   <style>
+   .notify { 
+      background-color: #745b2d  !important;
+      padding:20px;
+      width: 400px;
+      transition: all 5ms ease-in-out;
+      transform-style: preserve-3d;
+   }
+</style>
+   <div class="container">
+
+   </div>
+   <div class="login-form" style="background-color: black;">
+      <img src="./mini.png" alt="" style="height: 100px;" srcset="">
+      <form method="post" action="#">
+         <input type="text" name="email" placeholder="Email" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
+         <input type="password" name="password" placeholder="Password" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;transition:2ms" required>
+         <button type="submit" style="background-color: orange;">Login</button>
       </form>
-      <p>Don't have an account? <a href="#">Sign up</a></p>
+      <p>Don't have an account? <a href="./register.php" style="color:white;">Sign up</a></p>
    </div>
 </body>
 </html>

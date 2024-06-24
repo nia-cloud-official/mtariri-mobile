@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="description" content="Register Page">
    <meta name="author" content="Your Name">
    <title>Register Page</title>
-   
+
    <!-- Importing custom fonts -->
    <link href="https://fonts.googleapis.com/css?family=Figtree:800|DM+Sans:400" rel="stylesheet">
-   
+
    <!-- Custom CSS -->
    <style>
       :root {
@@ -31,7 +32,11 @@
          margin: 0;
       }
 
-      h1, h2, h3, h4, h5 {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
          font-family: "Figtree";
          font-weight: 800;
          line-height: 1;
@@ -115,19 +120,57 @@
       .register-form p a:hover {
          text-decoration: underline;
       }
+      
+      .container { 
+         height: 15vh;
+      }
    </style>
 </head>
+
 <body>
-   <div class="register-form">
-      <h2>Register</h2>
-      <form>
-         <input type="text" placeholder="Username" required>
-         <input type="email" placeholder="Email" required>
-         <input type="password" placeholder="Password" required>
-         <input type="password" placeholder="Confirm Password" required>
-         <button type="submit">Register</button>
+
+<?php
+  if(!isset($_POST["password"])){ 
+   # [Do nothing at all]
+  }else{ 
+   $email = $_POST["email"];
+   $phone = $_POST["phone"];
+   $username = $_POST["username"];
+   $password = $_POST["password"];
+   $conn  = mysqli_connect("localhost","milto","lola","mtariri");
+   $query1 = "SELECT * FROM `users` WHERE `email` = '$email'";
+   $result = mysqli_query($conn,$query1);
+   if(!mysqli_fetch_array($result)){
+      echo "<div class='notify'>Authenticating...</div>";
+      $query = "INSERT INTO `users` (`id`, `username`, `phone`, `email`, `user_id`, `password`, `created_at`) VALUES (NULL, '$username', '$phone','$email','','$password', current_timestamp())";
+      mysqli_query($conn,$query);
+      $_SESSION['email'] = $email;
+   }else {
+      echo "<div class='notify'><p>An account associated with this email already exists, Please login instead</p></div>";
+   } 
+  }
+?>
+<style>
+   .notify { 
+      background-color: #745b2d  !important;
+      padding:20px;
+      width: 400px;
+   }
+</style>
+   <div class="container">
+
+   </div>
+   <div class="register-form" style="background-color: black;">
+      <img src="./mini.png" alt="" style="height: 100px;" srcset="">
+      <form method="post" action="#">
+         <input type="text" name="email" placeholder="Email" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
+         <input type="tel" name="phone" placeholder="Phone Number" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
+         <input type="text" name="username" placeholder="Username" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
+         <input type="password" name="password" placeholder="Password" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;transition:2ms" required>
+         <button type="submit" style="background-color: orange;">Register</button>
       </form>
-      <p>Already have an account? <a href="#">Login</a></p>
+      <p>Already have an account? <a href="login.php" style="color:white">Login</a></p>
    </div>
 </body>
+
 </html>

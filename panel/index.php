@@ -1,17 +1,21 @@
 <?php
-
 session_start();
-
-// Replace these with your own database connection details
+# [Database Configuration]
 $servername = "localhost";
 $username = "milto";
 $password = "lola";
-$dbname = "mtariri"; // Replace with your database name
-
-// Create connection
+$dbname = "mtariri"; 
+# [User Variables]
+# [Logic]
+if (!$_SESSION['email']){
+      header("Location:" . "./../login.php");
+   } else { 
+    # [ Do nothing ]
+  }
+# [Create connection]
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+# [Check connection]
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -25,9 +29,10 @@ $query = "SELECT * FROM users WHERE email = ?";
     $user_data = $result->fetch_assoc();
 ?>
 <head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Portal | My Mtariri</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Mtariri App">
+   <meta name="author" content="Milton Vafana"><title>Portal | My Mtariri</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="assets/css/app.min.css">
   <!-- Template CSS -->
@@ -85,7 +90,7 @@ $query = "SELECT * FROM users WHERE email = ?";
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="./../logo.png" style="height:100px" class="header-logo" />
+            <a href="index.html"> <img alt="image" src="./../logo.png" style="height:60px" class="header-logo" />
             </a>
           </div>
           <ul class="sidebar-menu">
@@ -109,9 +114,9 @@ $query = "SELECT * FROM users WHERE email = ?";
                     <div class="row ">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
-                          <h5 class="font-15">New Booking</h5>
-                          <h2 class="mb-3 font-18">258</h2>
-                          <p class="mb-0"><span class="col-green">10%</span> Increase</p>
+                          <h5 class="font-15">Manage all policies</h5>
+                          <h2 class="mb-3 font-18">My Policies</h2>
+                          <button class="btn btn-primary" style="background-color: orange;">Go to my Policies &rightarrow;</button>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -131,9 +136,10 @@ $query = "SELECT * FROM users WHERE email = ?";
                     <div class="row ">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
-                          <h5 class="font-15"> Customers</h5>
-                          <h2 class="mb-3 font-18">1,287</h2>
-                          <p class="mb-0"><span class="col-orange">09%</span> Decrease</p>
+                          <h5 class="font-15">Manage your gifts and offers</h5>
+                          <h2 class="mb-3 font-18">My Offers</h2>
+                          <p class="mb-0"><span class="col-green">Get free gifts & promotions from Mtariri</span></p>
+                          <p class="mb-1">COMING SOON!</p>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -153,10 +159,9 @@ $query = "SELECT * FROM users WHERE email = ?";
                     <div class="row ">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
-                          <h5 class="font-15">New Project</h5>
-                          <h2 class="mb-3 font-18">128</h2>
-                          <p class="mb-0"><span class="col-green">18%</span>
-                            Increase</p>
+                        <h5 class="font-15">Manage all My Claims</h5>
+                          <h2 class="mb-3 font-18">Manage My claims</h2>
+                          <button class="btn btn-primary" style="background-color: orange;">Go to Management &rightarrow;</button>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -176,14 +181,36 @@ $query = "SELECT * FROM users WHERE email = ?";
                     <div class="row ">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
-                          <h5 class="font-15">Revenue</h5>
-                          <h2 class="mb-3 font-18">$48,697</h2>
-                          <p class="mb-0"><span class="col-green">42%</span> Increase</p>
+                        <h5 class="font-15">Subscriptions</h5>
+                          <h2 class="mb-3 font-18">Buy insurance now!</h2>
+                          <button class="btn btn-primary" style="background-color: orange;">Go to Payments &rightarrow;</button>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
                         <div class="banner-img">
                           <img src="assets/img/banner/4.png" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="card">
+                <div class="card-statistic-4">
+                  <div class="align-items-center justify-content-between">
+                    <div class="row ">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                        <div class="card-content">
+                        <h5 class="font-15">Manage all payments</h5>
+                          <h2 class="mb-3 font-18">My Payments</h2>
+                          <button class="btn btn-primary" style="background-color: orange;">Go to Payments &rightarrow;</button>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                        <div class="banner-img">
+                          <img src="./../assets/images/content-1.svg" style="border-radius:10px;background-color: orange;" alt="">
                         </div>
                       </div>
                     </div>
