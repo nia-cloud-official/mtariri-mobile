@@ -168,7 +168,7 @@ session_start();
    </div>
    <div class="login-form" style="background-color: black;">
       <img src="./mini.png" alt="" style="height: 100px;" srcset="">
-      <form method="post" action="#">
+      <form method="post">
          <input type="text" name="email" placeholder="Email" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
          <input type="password" name="password" placeholder="Password" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;transition:2ms" required>
          <button type="submit" style="background-color: orange;">Login</button>
