@@ -141,7 +141,7 @@ session_start();
          foreach($results as $user){ 
              $email = $_POST['email'];
              $password = $_POST['password'];
-             if($password === $user[5]) { 
+             if($password === $user["password"]) { 
                echo "<div class='notify'>Authenticating...</div>";
                $_SESSION['email'] = $email;
                $data = $_SESSION['email'];
