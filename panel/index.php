@@ -2,9 +2,9 @@
 session_start();
 # [Database Configuration]
 $servername = "localhost";
-$username = "milto";
-$password = "lola";
-$dbname = "mtariri"; 
+$username = "qbwwvrrspz";
+$password = "c2CeTa6E7n";
+$dbname = "qbwwvrrspz"; 
 # [User Variables]
 # [Logic]
 if (!$_SESSION['email']){
