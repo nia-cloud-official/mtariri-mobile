@@ -125,7 +125,7 @@ session_start();
 </head>
 <body>
    <?php 
-   if(!isset($_POST["email"])){ 
+   if(isset($_POST["email"])){ 
       # [ Do nothing at all ]
    }else { 
       # [ Collect the email address ]
