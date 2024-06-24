@@ -5,9 +5,9 @@ $_SESSION['user_name'] = "";
 
 // Define database connection parameters
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'milto');
-define('DB_PASSWORD', 'lola');
-define('DB_NAME', 'mtariri');
+define('DB_USERNAME', 'qbwwvrrspz');
+define('DB_PASSWORD', 'c2CeTa6E7n');
+define('DB_NAME', 'qbwwvrrspz');
 
 // Try to connect to the database
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 
 // Site settings
 define('SITE_NAME', 'My Mtariri');
-define('BASE_URL', 'http://.com');
+define('BASE_URL', 'https://phpstack-1278496-4652517.cloudwaysapps.com/login.php');
 
 // Error reporting
 ini_set('display_errors', 1);
@@ -60,7 +60,7 @@ function check_login() {
     }
 }
 
-define('site_url',  "http://localhost/mtariri-mobile/");
+define('site_url',  "https://phpstack-1278496-4652517.cloudwaysapps.com/");
 
 function redirect($url) {
     header("Location". $url);
