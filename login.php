@@ -131,7 +131,7 @@ session_start();
       # [ Collect the email address ]
       $email = $_POST["email"];
       $query = "SELECT * FROM `users` WHERE `email` = '$email'";
-      $conn  = mysqli_connect("localhost","milto","lola","mtariri");
+      $conn  = mysqli_connect("localhost","qbwwvrrspz","c2CeTa6E7n","qbwwvrrspz");
       $result = mysqli_query($conn,$query);
       $results = mysqli_fetch_all($result);
       if(!$results) { 
