@@ -7,37 +7,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Connect to your database 
-       $conn  = mysqli_connect("localhost","qbwwvrrspz","c2CeTa6E7n","qbwwvrrspz");
-
-        if ($conn) {
-            // Sanitize inputs to prevent SQL injection
-            $email = mysqli_real_escape_string($conn, $email);
-            $password = mysqli_real_escape_string($conn, $password);
-
-            // Query to check if the user exists
-            $query = "SELECT * FROM users WHERE email = '$email'";
-            $result = mysqli_query($conn, $query);
-
-            if ($result) {
-                $user = mysqli_fetch_assoc($result);
-
-                // Check if user exists and verify password
-                if ($user && $password === $user['password']) {
-                    $_SESSION['email'] = $user['email'];
-                    header("Location: ./panel/index.php");
-                    exit;
-                } else {
-                    echo "<div class='notify'>Invalid Email or Password. Please try again.</div>";
-                }
-            } else {
-                echo "<div class='notify'>Database query error: " . mysqli_error($conn) . "</div>";
-            }
-
-            // Close database connection
-            mysqli_close($conn);
+        // Validate email (basic validation, you might want to enhance this)
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "<div class='notify'>Invalid Email format. Please enter a valid email address.</div>";
         } else {
-            echo "<div class='notify'>Database connection error: " . mysqli_connect_error() . "</div>";
+            // Connect to your database 
+            $conn  = mysqli_connect("localhost","qbwwvrrspz","c2CeTa6E7n","qbwwvrrspz");
+
+            if ($conn) {
+                // Sanitize inputs to prevent SQL injection
+                $email = mysqli_real_escape_string($conn, $email);
+                $password = mysqli_real_escape_string($conn, $password);
+
+                // Query to check if the user exists
+                $query = "SELECT * FROM users WHERE email = '$email'";
+                $result = mysqli_query($conn, $query);
+
+                if ($result) {
+                    $user = mysqli_fetch_assoc($result);
+
+                    // Check if user exists and verify password
+                    if ($user && password_verify($password, $user['password'])) {
+                        $_SESSION['email'] = $user['email'];
+                        header("Location: ./panel/index.php");
+                        exit;
+                    } else {
+                        echo "<div class='notify'>Invalid Email or Password. Please try again.</div>";
+                    }
+                } else {
+                    echo "<div class='notify'>Database query error: " . mysqli_error($conn) . "</div>";
+                }
+
+                // Close database connection
+                mysqli_close($conn);
+            } else {
+                echo "<div class='notify'>Database connection error: " . mysqli_connect_error() . "</div>";
+            }
         }
     } else {
         echo "<div class='notify'>Please enter both email and password.</div>";
@@ -59,68 +64,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    <!-- Custom CSS -->
    <style>
       :root {
-         --text: hsla(247, 57%, 91%, 1);
-         --text_light: hsla(247, 57%, 91%, 0.9);
-         --text_dark: hsla(247, 57%, 91%, 0.5);
-         --background: rgb(20, 21, 20);
-         --background_dark: rgb(16, 16, 15);
-         --primary: hsla(241, 25%, 50%, 1);
-         --secondary: hsla(247, 8%, 25%, 0.5);
-         --accent: rgb(100, 35, 251);
-         --outline: hsla(247, 5%, 36%, 1);
-         --alert: hsla(360, 60%, 55%, 1);
+         --text: #ffffff;
+         --background: #212121;
+         --primary: #ff9800;
+         --accent: #673ab7;
+         --error: #f44336;
       }
 
       * {
          box-sizing: border-box;
-         padding: 0;
          margin: 0;
-      }
-
-      h1, h2, h3, h4, h5 {
-         font-family: "Figtree";
-         font-weight: 800;
-         line-height: 1;
-         color: var(--text);
+         padding: 0;
       }
 
       html {
-         font-size: 100%;
+         font-size: 16px;
       }
 
       body {
-         height: 100%;
-         width: 100%;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         font-family: "DM Sans";
-         background: linear-gradient(11deg, var(--background_dark), var(--background));
+         font-family: "DM Sans", sans-serif;
+         background-color: var(--background);
          color: var(--text);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
          margin: 0;
-         padding: 2rem;
+         padding: 0;
       }
 
       .login-form {
          background: rgba(255, 255, 255, 0.1);
          border-radius: 1rem;
          padding: 2rem;
-         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
          width: 100%;
          max-width: 400px;
          text-align: center;
       }
 
-      .login-form h2 {
-         font-size: 2rem;
+      .login-form img {
+         width: 100px;
          margin-bottom: 1rem;
       }
 
       .login-form input {
          width: calc(100% - 2rem);
          padding: 1rem;
-         margin: 0.5rem;
+         margin: 0.5rem 0;
          font-size: 1rem;
          border: none;
          border-radius: 0.5rem;
@@ -149,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       .login-form p {
          font-size: 0.9rem;
-         color: var(--text_dark);
+         color: rgba(255, 255, 255, 0.8);
          margin-top: 0.5rem;
       }
 
@@ -163,25 +154,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
 
       .notify {
-         background-color: #745b2d;
-         padding: 20px;
-         width: 100%;
-         max-width: 400px;
-         margin-top: 20px;
-         border-radius: 10px;
+         background-color: var(--error);
+         padding: 1rem;
+         border-radius: 0.5rem;
+         margin-top: 1rem;
          color: white;
       }
    </style>
 </head>
 <body>
    <div class="login-form">
-      <img src="./mini.png" alt="Logo" style="height: 100px;">
+      <img src="./mini.png" alt="Logo">
       <form method="post">
          <input type="text" name="email" placeholder="Email" required>
          <input type="password" name="password" placeholder="Password" required>
          <button type="submit">Login</button>
       </form>
       <p>Don't have an account? <a href="./register.php">Sign up</a></p>
+      <?php
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+         echo "<div class='notify'>Please enter both email and password.</div>";
+      }
+      ?>
    </div>
 </body>
 </html>
