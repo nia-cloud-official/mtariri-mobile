@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
    <div class="login-form">
-      <img src="./mini.png" alt="Logo">
+      <img src="absorbed-base.surge.sh/logo.png" alt="Logo">
       <form method="post">
          <input type="text" name="email" placeholder="Email" required>
          <input type="password" name="password" placeholder="Password" required>
