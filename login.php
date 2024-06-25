@@ -1,8 +1,51 @@
-
-<?php 
-
+<?php
 session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check if email and password are set
+    if (isset($_POST['email'], $_POST['password'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        // Connect to your database 
+       $conn  = mysqli_connect("localhost","qbwwvrrspz","c2CeTa6E7n","qbwwvrrspz");
+
+        if ($conn) {
+            // Sanitize inputs to prevent SQL injection
+            $email = mysqli_real_escape_string($conn, $email);
+            $password = mysqli_real_escape_string($conn, $password);
+
+            // Query to check if the user exists
+            $query = "SELECT * FROM users WHERE email = '$email'";
+            $result = mysqli_query($conn, $query);
+
+            if ($result) {
+                $user = mysqli_fetch_assoc($result);
+
+                // Check if user exists and verify password
+                if ($user && $password === $user['password']) {
+                    $_SESSION['email'] = $user['email'];
+                    header("Location: ./panel/index.php");
+                    exit;
+                } else {
+                    echo "<div class='notify'>Invalid Email or Password. Please try again.</div>";
+                }
+            } else {
+                echo "<div class='notify'>Database query error: " . mysqli_error($conn) . "</div>";
+            }
+
+            // Close database connection
+            mysqli_close($conn);
+        } else {
+            echo "<div class='notify'>Database connection error: " . mysqli_connect_error() . "</div>";
+        }
+    } else {
+        echo "<div class='notify'>Please enter both email and password.</div>";
+    }
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +73,7 @@ session_start();
 
       * {
          box-sizing: border-box;
-         padding: 5px;
+         padding: 0;
          margin: 0;
       }
 
@@ -118,62 +161,27 @@ session_start();
       .login-form p a:hover {
          text-decoration: underline;
       }
-      .container { 
-         height: 15vh;
+
+      .notify {
+         background-color: #745b2d;
+         padding: 20px;
+         width: 100%;
+         max-width: 400px;
+         margin-top: 20px;
+         border-radius: 10px;
+         color: white;
       }
    </style>
 </head>
 <body>
-   <?php 
-   if(isset($_POST["email"])){ 
-      # [ Do nothing at all ]
-   }else { 
-      # [ Collect the email address ]
-      $email = $_POST["email"];
-      $query = "SELECT * FROM `users` WHERE `email` = '$email'";
-      $conn  = mysqli_connect("localhost","qbwwvrrspz","c2CeTa6E7n","qbwwvrrspz");
-      $result = mysqli_query($conn,$query);
-      $results = mysqli_fetch_all($result);
-      if(!$results) { 
-         echo "<div class='notify'><p>Invalid Email or Password!. Please try again</p></div>";
-      }else {
-         # Note to myself [ $user[5] is for password since the password is considered the 5th character in the array ];
-         foreach($results as $user){ 
-             $email = $_POST['email'];
-             $password = $_POST['password'];
-             if($password === $user["password"]) { 
-               echo "<div class='notify'>Authenticating...</div>";
-               $_SESSION['email'] = $email;
-               $data = $_SESSION['email'];
-               define('usermail', $data, true);
-               header("Location:" . "./panel/index.php");
-             }else { 
-               echo "<div class='notify'>Invalid Password, Please try again!</div>";
-             }
-         }
-      }
-   }
-   ?>
-   <style>
-   .notify { 
-      background-color: #745b2d  !important;
-      padding:20px;
-      width: 400px;
-      transition: all 5ms ease-in-out;
-      transform-style: preserve-3d;
-   }
-</style>
-   <div class="container">
-
-   </div>
-   <div class="login-form" style="background-color: black;">
-      <img src="./mini.png" alt="" style="height: 100px;" srcset="">
+   <div class="login-form">
+      <img src="./mini.png" alt="Logo" style="height: 100px;">
       <form method="post">
-         <input type="text" name="email" placeholder="Email" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
-         <input type="password" name="password" placeholder="Password" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;transition:2ms" required>
-         <button type="submit" style="background-color: orange;">Login</button>
+         <input type="text" name="email" placeholder="Email" required>
+         <input type="password" name="password" placeholder="Password" required>
+         <button type="submit">Login</button>
       </form>
-      <p>Don't have an account? <a href="./register.php" style="color:white;">Sign up</a></p>
+      <p>Don't have an account? <a href="./register.php">Sign up</a></p>
    </div>
 </body>
 </html>
