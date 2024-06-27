@@ -45,7 +45,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     } else {
-        echo "<div class='notify'>Please enter both email and password.</div>";
+        echo "<div class='notifications-container'>
+    <div class='error-alert'>
+      <div class='flex'>
+        <div class='flex-shrink-0'>
+          
+          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' class='error-svg'>
+            <path clip-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z' fill-rule='evenodd'></path>
+          </svg>
+        </div>
+        <div class='error-prompt-container'>
+          <p class='error-prompt-heading'>Your password isn't strong enough
+          </p><div class='error-prompt-wrap'>
+            <ul class='error-prompt-list' role='list'>
+              <li>Make sure to enter your email!</li>
+            </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>";
     }
 }
 ?>
@@ -60,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
    <!-- Importing custom fonts -->
    <link href="https://fonts.googleapis.com/css?family=Figtree:800|DM+Sans:400" rel="stylesheet">
-   
    <!-- Custom CSS -->
    <style>
       .form_container {
@@ -88,6 +106,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   border: 1px solid #F7F7F8;
   filter: drop-shadow(0px 0.5px 0.5px #EFEFEF) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   border-radius: 11px;
+  background-image: url("./mini.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .title_container {
@@ -287,7 +308,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
       <?php
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-         echo "<div class='notify'>Please enter both email and password.</div>";
+         echo "<div class='notifications-container'>
+    <div class='error-alert'>
+      <div class='flex'>
+        <div class='flex-shrink-0'>
+          
+          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' class='error-svg'>
+            <path clip-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z' fill-rule='evenodd'></path>
+          </svg>
+        </div>
+        <div class='error-prompt-container'>
+          <p class='error-prompt-heading'>Your password isn't strong enough
+          </p><div class='error-prompt-wrap'>
+            <ul class='error-prompt-list' role='list'>
+              <li>Username or Password is incorrect</li>
+            </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>";
       }
       ?>
    </div>
