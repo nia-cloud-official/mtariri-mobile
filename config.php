@@ -4,10 +4,10 @@ session_start();
 $_SESSION['user_name'] = "";
 
 // Define database connection parameters
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'qbwwvrrspz');
-define('DB_PASSWORD', 'c2CeTa6E7n');
-define('DB_NAME', 'qbwwvrrspz');
+define('DB_SERVER', 'localhost'); //localhost
+define('DB_USERNAME', 'milto'); //qbwwvrrspz
+define('DB_PASSWORD', 'lola'); //c2CeTa6E7n
+define('DB_NAME', 'mtariri'); // qbwwvrrspz
 
 // Try to connect to the database
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -25,14 +25,14 @@ define('BASE_URL', 'https://phpstack-1278496-4652517.cloudwaysapps.com/login.php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Email configuration (if needed)
-define('EMAIL_FROM', 'noreply@yourdomain.com');
+// Email configuration
+define('EMAIL_FROM', 'noreply@phpstack-1278496-4652517.cloudwaysapps.com/');
 define('EMAIL_FROM_NAME', 'Your Site Name');
-define('SMTP_HOST', 'smtp.yourdomain.com');
-define('SMTP_USERNAME', 'your_smtp_username');
-define('SMTP_PASSWORD', 'your_smtp_password');
+define('SMTP_HOST', 'smtp.phpstack-1278496-4652517.cloudwaysapps.com/');
+define('SMTP_USERNAME', '');
+define('SMTP_PASSWORD', '');
 define('SMTP_PORT', 587);
-define('SMTP_ENCRYPTION', 'tls'); // or 'ssl'
+define('SMTP_ENCRYPTION', 'tls'); 
 
 // Security settings
 define('PASSWORD_HASH_ALGO', PASSWORD_DEFAULT); // Algorithm used for password hashing
