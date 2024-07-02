@@ -2,9 +2,9 @@
 session_start();
 # [Database Configuration]
 $servername = "localhost";
-$username = "qbwwvrrspz";
-$password = "c2CeTa6E7n";
-$dbname = "qbwwvrrspz"; 
+$username = "milto";
+$password = "lola";
+$dbname = "mtariri"; 
 # [User Variables]
 # [Logic]
 if (!$_SESSION['email']){
@@ -80,7 +80,7 @@ $query = "SELECT * FROM users WHERE email = ?";
                 My Inbox
               </a>
               <div class="dropdown-divider"></div>
-              <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+              <a href="./logout.php" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
                 Logout
               </a>
             </div>

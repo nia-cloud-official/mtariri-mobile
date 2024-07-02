@@ -10,121 +10,6 @@
 
    <!-- Importing custom fonts -->
    <link href="https://fonts.googleapis.com/css?family=Figtree:800|DM+Sans:400" rel="stylesheet">
-
-   <!-- Custom CSS -->
-   <style>
-      :root {
-         --text: hsla(247, 57%, 91%, 1);
-         --text_light: hsla(247, 57%, 91%, 0.9);
-         --text_dark: hsla(247, 57%, 91%, 0.5);
-         --background: rgb(20, 21, 20);
-         --background_dark: rgb(16, 16, 15);
-         --primary: hsla(241, 25%, 50%, 1);
-         --secondary: hsla(247, 8%, 25%, 0.5);
-         --accent: rgb(100, 35, 251);
-         --outline: hsla(247, 5%, 36%, 1);
-         --alert: hsla(360, 60%, 55%, 1);
-      }
-
-      * {
-         box-sizing: border-box;
-         padding: 0;
-         margin: 0;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-         font-family: "Figtree";
-         font-weight: 800;
-         line-height: 1;
-         color: var(--text);
-      }
-
-      html {
-         font-size: 100%;
-      }
-
-      body {
-         height: 100%;
-         width: 100%;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         font-family: "DM Sans";
-         background: linear-gradient(11deg, var(--background_dark), var(--background));
-         color: var(--text);
-         margin: 0;
-         padding: 2rem;
-      }
-
-      .register-form {
-         background: rgba(255, 255, 255, 0.1);
-         border-radius: 1rem;
-         padding: 2rem;
-         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-         width: 100%;
-         max-width: 400px;
-         text-align: center;
-      }
-
-      .register-form h2 {
-         font-size: 2rem;
-         margin-bottom: 1rem;
-      }
-
-      .register-form input {
-         width: calc(100% - 2rem);
-         padding: 1rem;
-         margin: 0.5rem;
-         font-size: 1rem;
-         border: none;
-         border-radius: 0.5rem;
-         background: rgba(255, 255, 255, 0.8);
-         outline: none;
-         color: var(--text);
-      }
-
-      .register-form button {
-         width: calc(100% - 2rem);
-         padding: 1rem;
-         margin: 1rem 0;
-         font-size: 1rem;
-         border: none;
-         border-radius: 0.5rem;
-         background: var(--primary);
-         color: var(--background);
-         cursor: pointer;
-         outline: none;
-         transition: background 0.3s ease;
-      }
-
-      .register-form button:hover {
-         background: var(--accent);
-      }
-
-      .register-form p {
-         font-size: 0.9rem;
-         color: var(--text_dark);
-         margin-top: 0.5rem;
-      }
-
-      .register-form p a {
-         color: var(--primary);
-         text-decoration: none;
-      }
-
-      .register-form p a:hover {
-         text-decoration: underline;
-      }
-      
-      .container { 
-         height: 15vh;
-      }
-   </style>
 </head>
 
 <body>
@@ -145,6 +30,7 @@
       $query = "INSERT INTO `users` (`id`, `username`, `phone`, `email`, `user_id`, `password`, `created_at`) VALUES (NULL, '$username', '$phone','$email','','$password', current_timestamp())";
       mysqli_query($conn,$query);
       $_SESSION['email'] = $email;
+      header("Location: ./panel/index.php");
    }else {
       echo "<div class='notify'><p>An account associated with this email already exists, Please login instead</p></div>";
    } 
@@ -157,20 +43,96 @@
       width: 400px;
    }
 </style>
-   <div class="container">
 
-   </div>
-   <div class="register-form" style="background-color: black;">
-      <img src="./mini.png" alt="" style="height: 100px;" srcset="">
-      <form method="post" action="#">
-         <input type="text" name="email" placeholder="Email" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
-         <input type="tel" name="phone" placeholder="Phone Number" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
-         <input type="text" name="username" placeholder="Username" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;" required>
-         <input type="password" name="password" placeholder="Password" style="border: none;background-color:transparent;border-bottom:solid orange 0.1px;border-radius:0px;transition:2ms" required>
-         <button type="submit" style="background-color: orange;">Register</button>
-      </form>
-      <p>Already have an account? <a href="login.php" style="color:white">Login</a></p>
-   </div>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- auth-register.html  21 Nov 2019 04:05:01 GMT -->
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Register | My Mtariri</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="public/css/app.min.css">
+  <link rel="stylesheet" href="public/bundles/jquery-selectric/selectric.css">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/components.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="public/css/custom.css">
+  <link rel='shortcut icon' type='image/x-icon' href='public/img/favicon.ico' />
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Register</h4>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="">
+                <div class="form-group">
+                    <label for="email">Username</label>
+                    <input id="email" type="email" class="form-control" name="username">
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Phone Number</label>
+                    <input id="phone" type="phone" class="form-control" name="phone">
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input id="password" type="password" class="form-control" name="email">
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Password</label>
+                    <input id="password" type="password" class="form-control" name="password">
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="mb-4 text-muted text-center">
+                Already Registered? <a href="./login.php">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="public/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <script src="public/bundles/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+  <script src="public/bundles/jquery-selectric/jquery.selectric.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="public/js/page/auth-register.js"></script>
+  <!-- Template JS File -->
+  <script src="public/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="public/js/custom.js"></script>
+</body>
+
+
+<!-- auth-register.html  21 Nov 2019 04:05:02 GMT -->
+</html>
 </body>
 
 </html>

@@ -2,8 +2,17 @@
 require("config.php");
    $userProfName = $_SESSION['email'];
    if (empty($userProfName)){
-      header("Location:" . "login.php");
+       if($_SESSION['auth'] = true) { 
+           echo "Welcome back to the dashboard";
+       }else{ 
+           echo "";
+       }
    } else { 
+    if($_SESSION['auth'] = true) { 
+      echo "Welcome back to the dashboard";
+    } else { 
+      echo "";
+    }
     echo "Welcome back " . " ".  $_SESSION['user_name'];
    }
 ?>
