@@ -116,7 +116,9 @@ $query = "SELECT * FROM users WHERE email = ?";
                         <div class="card-content">
                           <h5 class="font-15">Manage all policies</h5>
                           <h2 class="mb-3 font-18">My Policies</h2>
+                          <a href="./policies.php">
                           <button class="btn btn-primary" style="background-color: orange;">Go to my Policies &rightarrow;</button>
+                          </a>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">

@@ -80,8 +80,12 @@ $email = $_SESSION['email'];
 
       <?php 
         $conn = mysqli_connect("localhost","milto","lola","mtariri");
+        $email = $_SESSION['email'];
         $query = "SELECT * FROM policies WHERE policy_user_email = '$email'";
-
+        $result = mysqli_query($conn,$query);
+        if(!$result){ 
+          echo 'Nothing to display';
+        }else { 
       ?>
       <!-- Main Content -->
       <div class="main-content">
@@ -90,34 +94,33 @@ $email = $_SESSION['email'];
               <div class="col-md-6">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Order Status</h4>
+                    <h4>My Policies</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <tr>
-                          <th>Order Date</th>
-                          <th>Beneficiaries</th>
-                          <th>Pending Amount</th>
+                          <th>Policy ID</th>
+                          <th>Cover Amount</th>
+                          <th>Start Date</th>
+                          <th>Options</th>
                         </tr>
+                        <?php  $policyUser = $_SESSION['email']; foreach($result as $policyUser){ ?>
                         <tr>
-                          <td>XY56987</td>
-                          <td>John Deo</td>
-                          <td>$955</td>
+                          <td>
+                            &numero; <?php echo $policyUser['policy_id'];?>
+                          </td>
+                          <td>$<?php echo $policyUser['policy_user_cover_amount'] ?></td>
+                          <td><?php echo $policyUser['policy_user_start_date']; ?></td>
+                          <td><a class="btn btn-primary" href="myPolicy.php">Manage</a></td>
                         </tr>
-                        <tr>
-                          <td>XY12587</td>
-                          <td>Sarah Smith</td>
-                          <td>$215</td>
-                        </tr>
-                        <tr>
-                          <td>XY58987</td>
-                        </tr>
+                        <?php }  }?>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
+              
             </div>
         </section>
         <div class="settingSidebar">

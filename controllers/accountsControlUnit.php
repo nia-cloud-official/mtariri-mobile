@@ -14,20 +14,22 @@ class UserModel {
     public function redirect($url) {
         
     }
-    public function getUserStatus($email) {
-        $this->user_email = $email;
+    public function getUserStatus() {
+        $email = $_POST['email'];
         // Use prepared statements to prevent SQL injection
         $conn = new mysqli('localhost', 'milto', 'lola', 'mtariri');
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT user_policy FROM `users` WHERE email = ?");
-        $stmt->bind_param("s", $email); // 's' specifies the variable type => 'string'
+        $query  = "SELECT user_policy FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn, $query);
+        //$stmt = $conn->prepare("SELECT user_policy FROM users WHERE email = '$email'");
+        // $stmt->bind_param("s", $email); // 's' specifies the variable type => 'string'
 
-        $stmt->execute();
-        $result = $stmt->get_result();
-
+        // $stmt->execute();
+        //$result = $stmt->get_result();
+        
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
@@ -88,7 +90,7 @@ class UserModel {
     }
 }
 $app = new UserModel();
-$app->getUserStatus("james@gmail.com");
+$app->getUserStatus();
 
 ?>
 <!-- tailwind cdn -->

@@ -7,5 +7,7 @@
 			"path": "../../../../Users/milto/Downloads/v3.4.4 source code/tailwind"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mtariri-mobile"
+	}
 }
